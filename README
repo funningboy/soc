@@ -1,0 +1,9 @@
+1. how to use VPI in iverilog
+  http://iverilog.wikia.com/wiki/Using_VPI
+2. vpi log10 example
+  http://www.project-veripage.com/math_p2.php
+3. run VPI example
+  http://en.wikipedia.org/wiki/Verilog_Procedural_Interface
+
+iverilog command
+ref: ./vpi/runtest.sh

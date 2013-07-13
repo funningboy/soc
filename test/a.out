@@ -1,0 +1,55 @@
+#! /opt/local/bin/vvp
+:ivl_version "0.9.6 " "(v0_9_6)";
+:vpi_time_precision - 11;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x10d202a40 .scope module, "test_normal" "test_normal" 2 31;
+ .timescale -9 -11;
+P_0x10d201ad8 .param/l "C_WIDTH" 2 33, +C4<01000>;
+v0x10d2174e0_0 .var "reg_a", 7 0;
+v0x10d217590_0 .var "reg_b", 7 0;
+v0x10d217630_0 .net "reg_c", 7 0, L_0x10d217bf0; 1 drivers
+S_0x10d202c00 .scope module, "u_add" "Add" 2 47, 3 2, S_0x10d202a40;
+ .timescale -9 -11;
+P_0x10d201ef8 .param/l "C_WIDTH" 3 2, +C4<01000>;
+v0x10d2041b0_0 .net "a", 7 0, v0x10d2174e0_0; 1 drivers
+v0x10d2173d0_0 .net "b", 7 0, v0x10d217590_0; 1 drivers
+v0x10d217460_0 .alias "c", 7 0, v0x10d217630_0;
+L_0x10d217bf0 .arith/sum 8, v0x10d2174e0_0, v0x10d217590_0;
+S_0x10d202b20 .scope module, "test_over_float" "test_over_float" 2 7;
+ .timescale -9 -11;
+P_0x10d201ce8 .param/l "C_WIDTH" 2 9, +C4<01000>;
+v0x10d2179e0_0 .var "reg_a", 7 0;
+v0x10d217a90_0 .var "reg_b", 7 0;
+v0x10d217b30_0 .net "reg_c", 7 0, L_0x10d217d80; 1 drivers
+S_0x10d2176f0 .scope module, "u_add" "Add" 2 23, 3 2, S_0x10d202b20;
+ .timescale -9 -11;
+P_0x10d2177d8 .param/l "C_WIDTH" 3 2, +C4<01000>;
+v0x10d217860_0 .net "a", 7 0, v0x10d2179e0_0; 1 drivers
+v0x10d2178e0_0 .net "b", 7 0, v0x10d217a90_0; 1 drivers
+v0x10d217960_0 .alias "c", 7 0, v0x10d217b30_0;
+L_0x10d217d80 .arith/sum 8, v0x10d2179e0_0, v0x10d217a90_0;
+    .scope S_0x10d202a40;
+T_0 ;
+    %delay 0, 0;
+    %set/v v0x10d2174e0_0, 0, 8;
+    %movi 8, 1, 8;
+    %set/v v0x10d217590_0, 8, 8;
+    %vpi_call 2 41 "$display", "%d = %d + %d", v0x10d217630_0, v0x10d2174e0_0, v0x10d217590_0;
+    %end;
+    .thread T_0;
+    .scope S_0x10d202b20;
+T_1 ;
+    %delay 0, 0;
+    %set/v v0x10d2179e0_0, 1, 8;
+    %set/v v0x10d217a90_0, 1, 8;
+    %vpi_call 2 17 "$display", "%d = %d + %d", v0x10d217b30_0, v0x10d2179e0_0, v0x10d217a90_0;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test_dut.v";
+    "../dut.v";

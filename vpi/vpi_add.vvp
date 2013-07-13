@@ -1,0 +1,19 @@
+#! /opt/local/bin/vvp
+:ivl_version "0.9.6 " "(v0_9_6)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x108a024b0 .scope module, "top" "top" 2 1;
+ .timescale 0 0;
+    .scope S_0x108a024b0;
+T_0 ;
+    %vpi_func 2 4 "$vpi_add", 8, 32, 3'sb010, 2'sb01;
+    %vpi_call 2 4 "$display", "%d=%d+%d", T<8,32,u>, 3'sb010, 2'sb01;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "vpi_add.v";
