@@ -1,3 +1,28 @@
+# copyright by SeanChen @funningboy@gmail.com
+# modify date 2013/07/13
+# license GPL``:
+#
+# this is HW/SW regression demo
+# HW part: using verilog to implement it (ex: add func)
+# SW part: using verilog vpi to call c/c++ func (ex: + )
+# assertion check : check the HW and SW results are eq
+# register all testsuites to python unittest flow
+# ex: ./test/test_dut.v
+
+#system requirement
+# 1. iverilog
+#   mac install  % port install iverilog
+# 2. nose
+#   mac install  % port install nose or easy_install nose
+# 3. python2.7
+# 4. vpi verilog interface(it's include in iverilog)
+# 5. make sure your env path is include the iverlog, python, nose....
+# ex: .bashrc
+#
+# how to run it
+# % python regression.py
+
+Ref:
 1. how to use VPI in iverilog
   http://iverilog.wikia.com/wiki/Using_VPI
 2. vpi log10 example
